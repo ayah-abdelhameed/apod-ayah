@@ -1,0 +1,16 @@
+.fact-container h2, button{
+    color: #9CCDDC;
+    font-family: "Electrolize", sans-serif;
+}
+
+.fact-container button{
+    border: solid 1px white;
+    font-family: "Electrolize", sans-serif;
+}
+
+.fact-container p{
+    font-family: "Electrolize", sans-serif;
+    font-size: 1.25rem;
+    padding: 1rem 0;
+}
+

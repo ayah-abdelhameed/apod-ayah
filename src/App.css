@@ -1,0 +1,85 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.description h2, .description p{
+  text-align: left;
+  font-family: "Electrolize", sans-serif;
+}
+
+
+.description h2{
+  color: #9CCDDC;
+  margin-bottom: .25rem;
+}
+
+.description p{
+  margin-top: .25rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+p{
+  color: white;
+  line-height: 1.65rem;
+}
+
+.description{
+  padding: 0 0 5rem 26rem;
+}
+
+.fact-container{
+  width: 100%;
+  text-align: center;
+  margin-top: 10rem;
+  padding: 1rem;
+}
+
+@media (max-width: 1075px){
+  .apod-section, .description, .calendar-container, .facts{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .today-button{
+    display: block;
+    margin: 0 auto 2rem auto;
+  }
+
+  .description h2, .description p{
+    text-align: center;
+  }
+
+  .description{
+    padding: 0;
+  }
+
+  .fact-container{
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 575px){
+  .today-button{
+    margin-top: -60px !important;
+  }
+
+  .react-datepicker{
+    transform: scale(.75);
+    transform-origin: top center;
+  }
+
+  .calendar-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
