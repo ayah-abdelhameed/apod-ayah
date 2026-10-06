@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://<username>.github.io/react-cse204a",
+  "homepage": "https://ayah-abdelhameed.github.io/react-cse204a",
   "scripts": {
     "dev": "vite",
     "start": "vite",
