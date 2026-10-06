@@ -16,7 +16,6 @@ export default function FactGenerator() {
   const [fact, setFact] = useState('');
 
   const generateFact = () => {
-    // Selects a random fact from the short curated list
     const randomIndex = Math.floor(Math.random() * SHORT_SPACE_FACTS.length);
     setFact(SHORT_SPACE_FACTS[randomIndex]);
   };

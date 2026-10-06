@@ -39,7 +39,10 @@ function APODDisplay({ selectedDate, onPreviousDate, onNextDate }) {
               : `HTTP error: ${response.status}`;
           throw new Error(msg);
         }
-        setApodData(await response.json());
+        
+        const apodJson = await response.json();
+        console.log("Fetched APOD Data for", selectedDate, apodJson);
+        setApodData(apodJson);
       } catch (e) {
         setError(e.message);
         setApodData(null);
@@ -54,23 +57,27 @@ function APODDisplay({ selectedDate, onPreviousDate, onNextDate }) {
   if (error) return <p>APOD error: {error}</p>;
   if (!apodData) return <p>No APOD available for {selectedDate}</p>;
 
-  return (
-    <div className="apod-container">
-      <nav className="apod-nav-container">
-        <button onClick={onPreviousDate}>&lt;</button>
-        <figure className="apod-figure">
-          {apodData.media_type === 'image' ? (
-            <img className="apod-img" src={apodData.url} alt={apodData.title} />
-          ) : (
-            <iframe
-              className="apod-vid"
-              title="APOD"
-              src={apodData.url}
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-          )}
+return (
+  <div className="apod-container">
+    <div className="api-notice-banner">
+      <strong>NASA API Notice (as of 10/6/2026):</strong> Historical dates may temporarily display today's content due to an ongoing upstream server-side issue from NASA.
+    </div>
+
+    <nav className="apod-nav-container">
+      <button onClick={onPreviousDate}>&lt;</button>
+      <figure className="apod-figure">
+        {apodData.media_type === 'image' ? (
+          <img className="apod-img" src={apodData.url} alt={apodData.title} />
+        ) : (
+          <iframe
+            className="apod-vid"
+            title="APOD Video"
+            src={apodData.url}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        )}
           <figcaption>
             <h2>
               {apodData.title} – {formatDate(selectedDate)}

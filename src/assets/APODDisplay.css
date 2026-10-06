@@ -23,7 +23,8 @@
     width: auto;
 }
 
-img.apod-img, .apod-figure iframe{
+/* Remove iframe from the image rule */
+img.apod-img {
     width: auto;
     max-width: 100%;
     max-height: 60vh;
@@ -33,7 +34,40 @@ img.apod-img, .apod-figure iframe{
     padding: 0;
 }
 
-.apod-vid {
+iframe.apod-vid {
+    width: 100%;
+    max-width: 100%;
+    min-height: 20rem;
+    max-height: 60vh;
+    aspect-ratio: 16 / 9; 
+    border: solid 2px white;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+}
+
+img.apod-img{
+    width: auto;
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border: solid 2px white;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.apod-vid{
+    width: 100%;
+    max-width: 100%;
+    max-height: 60vh;
+    aspect-ratio: 16 / 9; 
+    border: solid 2px white;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+}
+
+.apod-vid{
     min-height: 20rem;
     min-width: 90%;
 }
@@ -81,7 +115,21 @@ figcaption{
 
 button:disabled,
 button.disabled-arrow {
-  opacity: 0.3;
-  cursor: not-allowed;
-  pointer-events: none;
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.api-notice-banner {
+    background-color: rgba(43, 43, 43, 0.85);
+    color: white;
+    font-family: "Electrolize", sans-serif;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 13px;
+    border-radius: 6px;
+    margin: 15px auto;
+    line-height: 1.65rem;    
+    border: 1px solid rgba(255, 204, 0, 0.4);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
