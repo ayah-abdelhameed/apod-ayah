@@ -58,37 +58,44 @@ function APODDisplay({ selectedDate, onPreviousDate, onNextDate }) {
   if (!apodData) return <p>No APOD available for {selectedDate}</p>;
 
 return (
-  <div className="apod-container">
-    <div className="api-notice-banner">
-      <strong>NASA API Notice (as of 10/6/2026):</strong> Historical dates may temporarily display today's content due to an ongoing upstream server-side issue from NASA.
-    </div>
+    <div className="apod-container">
+      <div className="api-notice-banner">
+        <strong>NASA API Notice (as of 10/7/2026):</strong> Historical dates may temporarily display today's content due to an ongoing upstream server-side issue from NASA.
+      </div>
 
-    <nav className="apod-nav-container">
-      <button onClick={onPreviousDate}>&lt;</button>
-      <figure className="apod-figure">
-        {apodData.media_type === 'image' ? (
-          <img className="apod-img" src={apodData.url} alt={apodData.title} />
-        ) : (
-          <iframe
-            className="apod-vid"
-            title="APOD Video"
-            src={apodData.url}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        )}
-          <figcaption>
-            <h2>
-              {apodData.title} – {formatDate(selectedDate)}
-            </h2>
-          </figcaption>
-        </figure>
-        <button onClick={onNextDate} disabled={isToday} className={isToday ? 'disabled-arrow' : ''}>
-          &gt;
-        </button>
-      </nav>
-      <p className="explanation">{apodData.explanation}</p>
+      {isLoading && <p>Loading APOD...</p>}
+      {error && <p>APOD error: {error}</p>}
+
+      {apodData && (
+        <>
+          <nav className="apod-nav-container">
+            <button onClick={onPreviousDate}>&lt;</button>
+            <figure className="apod-figure">
+              {apodData.media_type === 'image' ? (
+                <img className="apod-img" src={apodData.url} alt={apodData.title} />
+              ) : (
+                <iframe
+                  className="apod-vid"
+                  title="APOD Video"
+                  src={apodData.url}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )}
+              <figcaption>
+                <h2>
+                  {apodData.title} – {formatDate(selectedDate)}
+                </h2>
+              </figcaption>
+            </figure>
+            <button onClick={onNextDate} disabled={isToday} className={isToday ? 'disabled-arrow' : ''}>
+              &gt;
+            </button>
+          </nav>
+          <p className="explanation">{apodData.explanation}</p>
+        </>
+      )}
     </div>
   );
 }
