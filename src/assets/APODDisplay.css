@@ -1,135 +1,146 @@
-.apod-container{
-    width: 90%;
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1.5rem;
+.apod-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  font-family: "Electrolize", sans-serif;
+  color: #f4f3f8;
 }
 
-.apod-nav-container{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1rem auto;
-}
-
-.apod-figure{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    width: auto;
-}
-
-/* Remove iframe from the image rule */
-img.apod-img {
-    width: auto;
-    max-width: 100%;
-    max-height: 60vh;
-    object-fit: contain;
-    border: solid 2px white;
-    margin: 0 auto;
-    padding: 0;
-}
-
-iframe.apod-vid {
-    width: 100%;
-    max-width: 100%;
-    min-height: 20rem;
-    max-height: 60vh;
-    aspect-ratio: 16 / 9; 
-    border: solid 2px white;
-    margin: 0 auto;
-    padding: 0;
-    display: block;
-}
-
-img.apod-img{
-    width: auto;
-    max-width: 100%;
-    max-height: 60vh;
-    object-fit: contain;
-    border: solid 2px white;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.apod-vid{
-    width: 100%;
-    max-width: 100%;
-    max-height: 60vh;
-    aspect-ratio: 16 / 9; 
-    border: solid 2px white;
-    margin: 0 auto;
-    padding: 0;
-    display: block;
-}
-
-.apod-vid{
-    min-height: 20rem;
-    min-width: 90%;
-}
-
-.apod-container button{
-    background-color: white;
-    color: #16131A;
-    border-radius: 20rem;
-    padding: .75rem 1rem;
-}
-
-.apod-container button:hover{
-    background-color: #e5d6f9;
-}
-
-p.explanation{
-    margin: 0 auto 1.5rem auto;
-    text-align: center;
-    font-family: "Electrolize", sans-serif;
-}
-
-figcaption{
-    font-family: "Electrolize", sans-serif;
+.apod-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 .apod-nav-container > button {
-    margin: 0 1.5rem;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background-color: #ffffff;
+  color: #16131a;
+  font-family: "Electrolize", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
 }
 
-.apod-nav-container > .apod-figure{
-    margin: 0;
-    flex-grow: 1;
+.apod-nav-container > button:hover:not(:disabled) {
+  border-color: #646cff;
+  background-color: #e5d6f9;
+  transform: scale(1.05);
 }
 
-@media (max-width: 950px){
-    .apod-container button{
-        display: none;
-    }
+.apod-nav-container > button:disabled,
+.apod-nav-container > button.disabled-arrow {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.apod-container h2{
-    color: #9CCDDC;
-    margin-bottom: 0;
+.apod-figure {
+  margin: 0;
+  flex: 1;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-button:disabled,
-button.disabled-arrow {
-    opacity: 0.3;
-    cursor: not-allowed;
-    pointer-events: none;
+.apod-img,
+.apod-vid {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background-color: #16131a;
 }
 
-.api-notice-banner {
-    background-color: rgba(43, 43, 43, 0.85);
-    color: white;
-    font-family: "Electrolize", sans-serif;
-    padding: 12px 20px;
-    text-align: center;
-    font-size: 13px;
-    border-radius: 6px;
-    margin: 15px auto;
-    line-height: 1.65rem;    
-    border: 1px solid rgba(255, 204, 0, 0.4);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+.apod-vid {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.apod-external-link {
+  width: 100%;
+  min-height: 260px;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(22, 19, 26, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.apod-external-link p {
+  margin: 0;
+  color: #d8d4e6;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.apod-external-link a {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #646cff;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.apod-external-link a:hover {
+  border-color: #646cff;
+  background-color: #646cff;
+  color: #ffffff;
+}
+
+.apod-figure figcaption h2 {
+  margin: 1rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+}
+
+.explanation {
+  text-align: center;
+}
+
+.explanation a {
+  color: #9ccddc;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.explanation a:hover {
+  color: #646cff;
+}
+
+@media (max-width: 640px) {
+  .apod-nav-container {
+    gap: 0.65rem;
+  }
+
+  .apod-nav-container > button {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1rem;
+  }
+
+  .apod-figure figcaption h2 {
+    font-size: 1.1rem;
+  }
 }

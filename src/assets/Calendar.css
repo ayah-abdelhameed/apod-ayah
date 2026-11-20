@@ -66,3 +66,16 @@
     background-color: white !important;
     color: inherit !important;
 }
+
+.calendar-container .today-button{
+    border: solid 1px white !important;
+    display: block;
+    font-family: "Electrolize", sans-serif;
+    margin-top: .75rem;
+    font-size: .85rem;
+    transition: border-color 0.25s;
+}
+
+.calendar-container .today-button:hover{
+    border-color: #646cff !important;
+}
